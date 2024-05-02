@@ -1,9 +1,5 @@
 ﻿using Markdig;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MarkdigExtensions.RtfRenderer;
 
 namespace MvcDemo
 {
@@ -15,7 +11,7 @@ namespace MvcDemo
         {
             var pipeline = new MarkdownPipelineBuilder().Build();
             var writer = new StringWriter();
-            var renderer = new RtfRenderer.RtfRenderer(writer);
+            var renderer = new RtfRenderer(writer);
 
             renderer.StartDocument();
             Markdown.Convert(markdown, renderer, pipeline);
